@@ -11,4 +11,4 @@ It's mostly a copy/paste of the official documentation, but often simplified. Th
 
 ## Kubernetes simplyfied architecture
 
-[Kubernetes simplyfied architecture](./Kubernetes/img/k8s.png)
+![Kubernetes simplyfied architecture](./Kubernetes/img/k8s.png)
