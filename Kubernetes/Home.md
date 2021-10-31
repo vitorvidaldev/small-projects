@@ -39,3 +39,10 @@ The worker node(s) host the Pods that are the components of the application work
 The core of Kubernetes' control plane is the API server. The API server exposes an HTTP API that lets end users, different parts of your cluster, and external components communicate with one another.
 
 The Kubernetes API lets you query and manipulate the state of API objects in Kubernetes.
+
+## Understanding Kubernetes objects
+
+Kubernetes objects are persistent entities in the Kubernetes system. Kubernetes uses these to represent the state of your cluster. They can describe:
+- What containerized applications are running (and on which nodes)
+- The resources available to those applications
+- The policies around how those applications behave, such as restart policies, upgrades, and fault-tolerance
