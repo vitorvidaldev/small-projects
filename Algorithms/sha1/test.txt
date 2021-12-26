@@ -1,0 +1,1 @@
+This is a test text file for SHA-1. Can be used to test different encoding.

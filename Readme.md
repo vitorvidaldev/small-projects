@@ -6,6 +6,10 @@ This repository contains a collection of notes and tutorials that are useful for
 
 It's mostly a copy/paste of the official documentation, but often simplified. This helps me to find/remenber concepts easily.
 
+## Algorithms
+
+Implementation and usage examples for algorithms.
+
 ## Codeforces
 
 Problem solutions coded in golang. [Codeforces](https://codeforces.com/)
