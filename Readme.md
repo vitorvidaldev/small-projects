@@ -9,6 +9,6 @@ It's mostly a copy/paste of the official documentation, but often simplified. Th
 ## Links to the official documentation
 - [Kubernetes](https://kubernetes.io/)
 
-## Kubernetes simplyfied architecture
+## Kubernetes simplified architecture
 
-![Kubernetes simplyfied architecture](./Kubernetes/img/k8s.png)
+![Kubernetes simplified architecture](./Kubernetes/img/k8s.png)
