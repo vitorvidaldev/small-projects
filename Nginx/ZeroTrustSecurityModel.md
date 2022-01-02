@@ -1,0 +1,2 @@
+# Zero trust security model
+The zero trust security model (also, zero trust architecture, zero trust network architecture, ZTA, ZTNA), sometimes known as perimeterless security, describes an approach to the design and implementation of IT systems. The main concept behind zero trust is "never trust, always verify", which means that devices should not be trusted by default, even if they are connected to a managed corporate network such as the corporate LAN and even if they were previously verified.
