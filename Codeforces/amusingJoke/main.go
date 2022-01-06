@@ -8,6 +8,14 @@ func main() {
 	fmt.Scanf("%s\n", &s2)
 	fmt.Scanf("%s\n", &output)
 
+	if CanItBePermutted(s1, s2, output) {
+		fmt.Println("YES")
+	} else {
+		fmt.Println("NO")
+	}
+}
+
+func CanItBePermutted(s1, s2, output string) (result bool) {
 	input := s1 + s2
 	inputMap := make(map[rune]int)
 	for _, r := range input {
@@ -16,18 +24,16 @@ func main() {
 
 	for _, r := range output {
 		if inputMap[r] == 0 {
-			fmt.Println("NO")
-			return
+			return false
 		}
 		inputMap[r]--
 	}
 
 	for _, r := range input {
 		if inputMap[r] != 0 {
-			fmt.Println("NO")
-			return
+			return false
 		}
 	}
 
-	fmt.Println("YES")
+	return true
 }
