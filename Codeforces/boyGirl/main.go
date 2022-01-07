@@ -9,6 +9,14 @@ func main() {
 	var s string
 	fmt.Scanf("%s", &s)
 
+	if HasEvenDistinctCharacters(s) {
+		fmt.Println("CHAT WITH HER!")
+	} else {
+		fmt.Println("IGNORE HIM!")
+	}
+}
+
+func HasEvenDistinctCharacters(s string) bool {
 	var c []string
 	for _, r := range s {
 		c = append(c, string(r))
@@ -32,8 +40,8 @@ func main() {
 	}
 
 	if sum%2 == 0 {
-		fmt.Println("CHAT WITH HER!")
+		return true
 	} else {
-		fmt.Println("IGNORE HIM!")
+		return false
 	}
 }

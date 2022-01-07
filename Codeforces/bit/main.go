@@ -12,20 +12,24 @@ func main() {
 		var s string
 		fmt.Scanf("%s\n", &s)
 
-		a := ""
-		// identify substring
-		if s[0] == 'X' {
-			a = s[1:]
-		} else {
-			a = s[:len(s)-1]
-		}
-
-		if a == "++" {
-			sum++
-		} else {
-			sum--
-		}
+		sum += identifySubstring(s)
 	}
 
 	fmt.Println(sum)
+}
+
+func identifySubstring(s string) int {
+	a := ""
+
+	if s[0] == 'X' {
+		a = s[1:]
+	} else {
+		a = s[:len(s)-1]
+	}
+
+	if a == "++" {
+		return 1
+	} else {
+		return -1
+	}
 }
