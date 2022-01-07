@@ -17,7 +17,7 @@ func main() {
 	fmt.Println(result)
 }
 
-func FindSize(input string) (lenght int) {
+func FindSize(input string) (length int) {
 	result := make(map[byte]int)
 	for i := 1; i < len(input)-1; i++ {
 		if input[i] != ',' && input[i] != ' ' {

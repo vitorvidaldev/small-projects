@@ -1,21 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
 	var s1, s2, output string
-	fmt.Scanf("%s\n", &s1)
-	fmt.Scanf("%s\n", &s2)
-	fmt.Scanf("%s\n", &output)
+	getStringInput(s1)
+	getStringInput(s2)
+	getStringInput(output)
 
-	if CanItBePermutted(s1, s2, output) {
+	if CanItBePermuted(s1, s2, output) {
 		fmt.Println("YES")
 	} else {
 		fmt.Println("NO")
 	}
 }
 
-func CanItBePermutted(s1, s2, output string) (result bool) {
+func getStringInput(s string) {
+	_, err := fmt.Scanf("%s\n", &s)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func CanItBePermuted(s1, s2, output string) (result bool) {
 	input := s1 + s2
 	inputMap := make(map[rune]int)
 	for _, r := range input {

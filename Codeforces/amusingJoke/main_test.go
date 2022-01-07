@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestCanItBePermutted(t *testing.T) {
+func TestCanItBePermuted(t *testing.T) {
 	var input = []struct {
 		s1     string
 		s2     string
@@ -15,7 +15,7 @@ func TestCanItBePermutted(t *testing.T) {
 	}
 
 	for _, test := range input {
-		if CanItBePermutted(test.s1, test.s2, test.output) != test.result {
+		if CanItBePermuted(test.s1, test.s2, test.output) != test.result {
 			t.Fatal("Error")
 		}
 	}
