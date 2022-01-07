@@ -6,7 +6,12 @@ func main() {
 	var a, b int
 	fmt.Scanf("%d %d", &a, &b)
 
-	var nYears int
+	var nYears = NumberOfYears(a, b)
+
+	fmt.Println(nYears)
+}
+
+func NumberOfYears(a, b int) (nYears int) {
 	for {
 		if a > b {
 			break
@@ -16,5 +21,5 @@ func main() {
 		nYears++
 	}
 
-	fmt.Println(nYears)
+	return nYears
 }
