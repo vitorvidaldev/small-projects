@@ -9,7 +9,7 @@ To verify the tests coverage, execute `got test -cover`
 To generate a html coverage report, execute
 
 ```
-go test -cover -coverprofile=c.out
-go tool cover -html=c.out coverage.html
+go test -coverprofile=coverage.out
+go tool cover -html=coverage.out
 ```
 You can visualize the result in a browser
