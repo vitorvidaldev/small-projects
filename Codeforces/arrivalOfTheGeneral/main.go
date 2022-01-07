@@ -13,6 +13,12 @@ func main() {
 		heights = append(heights, h)
 	}
 
+	var result = FormLineUp(it, heights)
+
+	fmt.Println(result)
+}
+
+func FormLineUp(it int, heights []int) (result int) {
 	var maxIndex, minIndex int
 	max := heights[0]
 	min := heights[0]
@@ -27,11 +33,11 @@ func main() {
 		}
 	}
 
-	result := it - 1 - minIndex + maxIndex
+	result = it - 1 - minIndex + maxIndex
 
 	if minIndex < maxIndex {
 		result--
 	}
 
-	fmt.Println(result)
+	return result
 }
