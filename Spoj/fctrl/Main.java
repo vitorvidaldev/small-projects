@@ -1,7 +1,4 @@
-import java.math.BigInteger;
 import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,10 +7,25 @@ public class Main {
         int nCases = in.nextInt();
 
         while (nCases != 0) {
-            // BigInteger factorial = factorial(in.nextInt());
-            // System.out.println(factorial);
+            int number = in.nextInt();
+            int mult2 = countOcurrences(number, 2);
+            int mult5 = countOcurrences(number, 5);
+
+            System.out.println(Math.min(mult2, mult5));
             nCases--;
         }
         in.close();
+    }
+
+    public static int countOcurrences(int a, int b) {
+        int result = 0;
+        int originalValue = b;
+
+        while (a / b > 0) {
+            result += a / b;
+            b *= originalValue;
+        }
+
+        return result;
     }
 }
