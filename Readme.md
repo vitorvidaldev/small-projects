@@ -10,9 +10,18 @@ It's mostly a copy/paste of the official documentation, but often simplified. Th
 
 Implementation and usage examples for algorithms.
 
-## Codeforces
+## Languages
 
-Problem solutions coded in golang. [Codeforces](https://codeforces.com/)
+Contains commonly used methods and utilities specific for a given language.
+
+### Java
+
+## Codeforces and Spoj
+
+Problem solutions coded in Golang and Java. 
+
+[Codeforces](https://codeforces.com/)
+[Spoj](https://www.spoj.com/)
 
 ## Utils
 
@@ -22,6 +31,7 @@ Contains a csv parser and a json parser, as examples.
 
 ### Links to the official documentation
 - [Kubernetes](https://kubernetes.io/)
+- [Nginx] (https://nginx.com/)
 
 ### Kubernetes simplified architecture
 
