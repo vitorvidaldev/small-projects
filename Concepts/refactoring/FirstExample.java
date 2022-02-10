@@ -10,11 +10,11 @@ public class FirstExample {
         for (Performace perf : invoice.performaces()) {
             Play play;
             if (perf.playId().equals("hamlet")) {
-                play = new Hamlet();
+                play = new Hamlet("Hamlet", "tragedy");
             } else if (perf.playId().equals("as-like")) {
-                play = new AsLike();
+                play = new AsLike("As You Like It", "comedy");
             } else {
-                play = new Othello();
+                play = new Othello("Othello", "tragedy");
             }
 
             int thisAmount = 0;
@@ -43,10 +43,28 @@ public class FirstExample {
                 volumeCredits += Math.floor(perf.audience() / 5.0);
             }
 
+            result += play.name + ": " + (thisAmount / 100) + " (" + perf.audience() + " seats)\n";
             totalAmout += thisAmount;
         }
 
+        result += "Amount owed is " + totalAmout / 100 + "\n";
+        result += "You earned " + volumeCredits + " credits\n";
         return result;
+    }
+
+    public static void main(String[] args) {
+        Invoice invoice = new Invoice(
+                "BigCo",
+                List.of(
+                        new Performace("hamlet", 55),
+                        new Performace("as-like", 35),
+                        new Performace("othello", 40)));
+        Plays plays = new Plays(
+                new Hamlet("Hamlet", "tragedy"),
+                new AsLike("As You Like It", "comedy"),
+                new Othello("Othello", "tragedy"));
+        String result = statement(invoice, plays);
+        System.out.println(result);
     }
 }
 
@@ -63,15 +81,32 @@ record Performace(
 class Play {
     public String name;
     public String type;
+
+    public Play(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
 }
 
 class Hamlet extends Play {
+
+    public Hamlet(String name, String type) {
+        super(name, type);
+    }
 }
 
 class Othello extends Play {
+
+    public Othello(String name, String type) {
+        super(name, type);
+    }
 }
 
 class AsLike extends Play {
+
+    public AsLike(String name, String type) {
+        super(name, type);
+    }
 }
 
 record Plays(
