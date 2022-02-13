@@ -14,4 +14,4 @@ Actionable Agile metrics use cycle time to better predict when each project item
 
 ## References
 
-[^1] (Wikipedia)[https://en.wikipedia.org/wiki/Kanban_(development)]
+[^1] [Wikipedia](https://en.wikipedia.org/wiki/Kanban_(development))
