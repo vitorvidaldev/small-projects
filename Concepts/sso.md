@@ -1,4 +1,4 @@
-# What is SSO?
+# SSO
 
 SSO means Single sign-on, and it is an important cloud security technology that reduces all user application logins to one login for greater security and convenience. This document is based on [^1] and [^2].
 

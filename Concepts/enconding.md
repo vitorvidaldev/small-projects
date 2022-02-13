@@ -1,4 +1,4 @@
-# What is Enconding?
+# Enconding
 
 Character enconding is the process of assigning numbers to graphical characters, allowing them to be stored, transmitted, and transformed using digital computers. The low cost of digital representation of data in modern computer systems allows more elaborate character codes which represent most of the characters used in many written languages. Character encoding using internationally accepted standards permits worldwide interchange of text in electronic form.
 

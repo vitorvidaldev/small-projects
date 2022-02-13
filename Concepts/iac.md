@@ -1,4 +1,4 @@
-# What is IaC?
+# IaC
 
 IaC means Infrastructure as Code. It is the method of defining and provisioning infrastructure using definition files containing code. The references for the information provided in this file are [^1] and [^2].
 
