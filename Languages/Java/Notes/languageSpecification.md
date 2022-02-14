@@ -61,4 +61,34 @@ Variables are typed storage locations.
 
 In Java, declaration order is significant only for local variables, local classes, local interfaces, and the other field initializers in a class or interface.
 
-% section 1.2, page 22
+A preview feature is:
+- A new feature of the Java programming language (preview language feature);
+- A new module, package, class, interface, field, method, constructor, or enum constant in the java.* or javax.* namespace (preview API) that is fully specified, fully implemented, yet implemented.
+
+Java SE 17 defines one preview language feature: Pattern Matching for switch.
+
+## Chapter 2 - Grammars
+
+This chapter describes the context-free grammars used in the specification to define the lexical and syntatic structure of a program.
+
+### Context-free grammars
+
+A context-free grammar consists of a number of productions. Each production has an abstract symbol called a nonterminal as its left-hand side, and a sequence of one or more nonterminal and terminal symbols as its right-hand side. For each grammar, the terminal symbols are drawn from a specified alphabet.
+
+## Chapter 3 - Lexical Structure
+
+Programs are written in Unicode, but lexical translations are provided so that Unicode escapes can be used to include any Unicode character using only ASCII characters. Line terminators are defined to support the different conventions of existing host systems while maintaining consistent line numbers.
+
+## Unicode
+
+Programs are written using the Unicode character set.
+
+The Java programming language represents text in sequences of 16-bit code units, using UTF-16 encoding.
+
+Except for comments, identifiers, and the contents of character literals, string literals, and text blocks, all input elements in a program are formed only from ASCII characters.
+
+ASCII is the American Standard Code for Information Interchange. The first 128 characters of the Unicode UTF-16 encoding are the ASCII characters.
+
+## Lexical Translations
+
+% page 34
