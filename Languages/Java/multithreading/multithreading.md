@@ -4,10 +4,10 @@
 
 In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system. The implementation of threads and processes differs between operating systems, but in most cases a thread is a component of a process. The multiple threads of a given process may be executed concurrently, sharing resources such as memory, while different processes do not share these resources. In particular, the threads of a process share its executable code and the values of its dynamically allocated variables and non-thread-local global variables at any given time.
 
-## Thread lifecycle
+## Thread lifecycle in Java
 
 ```mermaid
-graph TD;
+graph TB;
     start-->runnable;
     runnable-->running;
     running-->blocked;
@@ -16,6 +16,8 @@ graph TD;
     waiting-->runnable;
     running-->terminated;
 ```
+
+Threads can be interrupted, and when that happens, it will throw an InterruptedException. The purpose of the interrupt system is to provide a well-defined framework for allowing threads to interrupt tasks (potentially time-consuming ones) in other threads.
 
 ## FAQ
 
