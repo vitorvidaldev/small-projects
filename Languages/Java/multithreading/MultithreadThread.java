@@ -4,8 +4,8 @@ class MultithreadingDemo extends Thread {
 		try {
 			// Displaying the thread that is running
 			System.out.println(
-				"Thread " + Thread.currentThread().getId()
-				+ " is running");
+					"Thread " + Thread.currentThread().getId()
+							+ " is running");
 		} catch (Exception e) {
 			// Throwing an exception
 			System.out.println("Exception is caught");
@@ -14,7 +14,7 @@ class MultithreadingDemo extends Thread {
 }
 
 // Main class
-public class Multithread {
+public class MultithreadThread {
 
 	public static void main(String[] args) {
 		int n = 8; // Number of threads

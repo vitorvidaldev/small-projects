@@ -17,9 +17,10 @@ In classical science we are daling with matter and therefore atoms but in simula
 ## A Seamless Approach Path
 
 ```mermaid
-Algorithms-->This Book
-C++-->This Book
-MPI-->This Book
+graph TB;
+Algorithms-->This Book;
+C++-->This Book;
+MPI-->This Book;
 ```
 
 In the scientific simulation approach there are several successive stages that lead from:
