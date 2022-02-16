@@ -18,9 +18,9 @@ In classical science we are daling with matter and therefore atoms but in simula
 
 ```mermaid
 graph TB;
-Algorithms-->This Book;
-C++-->This Book;
-MPI-->This Book;
+A(Algorithms)-->B(This Book);
+C(C++)-->B(This Book);
+D(MPI)-->B(This Book);
 ```
 
 In the scientific simulation approach there are several successive stages that lead from:
