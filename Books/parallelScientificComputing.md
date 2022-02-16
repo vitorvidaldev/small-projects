@@ -28,3 +28,5 @@ In the scientific simulation approach there are several successive stages that l
 3. From the numerical solution to visualization and analysis.
 
 In this book, we concentrate on stage 2 which includes not only the mathematics of numerical linear algebra and discretization but also the implementation of these concepts in C++ and MPI.
+
+Page 13
