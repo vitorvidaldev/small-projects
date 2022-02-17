@@ -8,7 +8,7 @@ In computer science, a thread of execution is the smallest sequence of programme
 
 ```mermaid
 graph TB;
-    start-->runnable;
+    new-->runnable;
     runnable-->running;
     running-->blocked;
     blocked-->runnable;
@@ -17,7 +17,27 @@ graph TB;
     running-->terminated;
 ```
 
+Thread lifecycle stages:
+- New: A new thread begins its life cycle in the new state. It remains in this state until the program starts the thread. It is also referred to as a born thread.
+- Runnable: After a newly born thread is started, the thread becomes runnable.
+- Waiting: Sometimes, a thread transitions to the waiting state while the thread waits for another thread to perform a task. A thread transitions back to the runnable state only when another thread signals the waiting thread to continue executing.
+- Timed Waiting: A runnable thread can enter the timed waiting state for a specified interval of time. A thread in this state transitions to the runnable state when that time interval expires or when the event it is waiting for occurs.
+- Terminated (Dead): A runnable thread enters the terminated state when it completes its task or otherwise occurs.
+
+
 Threads can be interrupted, and when that happens, it will throw an InterruptedException. The purpose of the interrupt system is to provide a well-defined framework for allowing threads to interrupt tasks (potentially time-consuming ones) in other threads.
+
+## Multithreaded Programs
+
+In computer programming, single-threading is the processing of one command at a time.
+
+Multithreading is a widespread programming and execution model that allows multiple threads to exist within the context of one process. These threads share the process's resources, but are able to execute independently. Thre threaded programming model provides developers with a useful abstraction of concurrent execution. Multithreading can also be applied to one process to enable parallel execution on a multiprocessing system.
+
+Multithreading libraries tend to provide a function call to create a new thread, which takes a function as a parameter. A concurrent thread is then created which starts running the passed function and ends when the function retunrs. Thre thread libraries also offer data synchronization functions.
+
+### Thread pools
+
+A popular programming pattern involving threads is that of thread pools where a set number of threads are created at startup that then wait for a task to be assigned. When a new task arrives, it wakes up, completes the task and goes back to waiting. This avoids the relatively expensive thread creation and destruction functions for every task performed and takes thread management out of the application developer's hand and leaves it to a library or the operating system that is better suited to optimize thread management.
 
 ## FAQ
 
