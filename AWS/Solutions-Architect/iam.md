@@ -47,6 +47,8 @@ Statements structure:
 - Action: list of actions this policy allows or denies
 - Condition: conditions for when this policy is in effect (optional)
 
+A statement in an IAM Policy consists of Sid, Effect, Principal, Action, Resource, and Condition. Version is part of the IAM Policy itself, not the statement.
+
 ## Password Policy
 
 You can defined a password policy, making sure you have strong passwords and a higher security for your account.
@@ -97,3 +99,44 @@ The AWS CLI is open source, and can be accessed [here](https://github.com/aws/aw
 AWS provides Software Development Kits (AWS SDK), that are language-specific APIs (set of libraries) that enable you to access and manage AWS services programmatically.
 
 The AWS SDK is used embedded in your application.
+
+## AWS CloudShell
+
+It gives you a command line access to AWS resources and tools directly from a browser.
+
+AWS CloudShell is a browser-based shell that makes it easy to securely manage, explore, and interact with you AWS resources. CloudShell is pre-authenticated with your console credentials. Common development and operations tools are pre-installed, so no local installation or configuration is required. With CloudShell, you can quickly run scripts with the AWS Command Line Interface (CLI), experiment with AWS service APIs using the AWS SDKs, or use a range of other tools to be productive. You can use CloudShell right from you browser and at no additional cost.
+
+Benefits:
+- No extra credentials to manage
+- Automatically updated
+- No cost
+- Customizable
+
+## IAM (Identity and Access Management) Roles for Services
+
+- Some AWS services will need to perform actions on your behalf;
+- To do so, we will assign permissions to AWS services with IAM Roles;
+
+Common Roles:
+- EC2 Instance Roles
+- Lambda Function Roles
+- Roles for CloudFormation
+
+An IAM role is an IAM identity that you can create in your account that has specific permissions. An IAM role is similar to an IAM user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session.
+
+## IAM Security Tools
+
+IAM Credentials Report (account-level): A report that lists all your account's users and the status of their various credentials.
+IAM Access Advisor (user-level): Access advisor shows the service permissions granted to a user and when those services were last accessed.
+
+## IAM Best Practices
+
+- Don't use the root account except for AWS account setup;
+- One physical user = One AWS user;
+- Assign users to groups and assign permissions to groups;
+- Create a strong password policy;
+- Use and enforce the use of Multi Factor Authentication (MFA);
+- Create and use Roles for giving permissions to AWS services;
+- Use Access Keys for Programmatic Access (CLI/SDK);
+- Audit permissions of your account with the IAM Credentials Report;
+- Never share IAM users & Access Keys.
