@@ -5,6 +5,10 @@ IAM is a global service, not region based.
 
 AWS Identity and Access Management (IAM) is a web service for securely controlling access to AWS resources. It enables you to create and control services for user authentication or limit access to a certain set of people who use your AWS resources.
 
+AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. You use IAM to control who is authenticated (signed in) and authorized (has permissions) to use resources.
+
+Free to use: AWS Identity and Access Management (IAM) and AWS Security Token Service (AWS STS) are features of your AWS account offered at no additional charge. You are charged only when you access other AWS services using your IAM users or AWS STS temporary security credentials.
+
 ## TLDR
 
 IAM (Identity and Access Management) is a global service, resposible for controlling access to AWS resources. It's used to control authentication or to limit access to a set of users.
@@ -140,3 +144,13 @@ IAM Access Advisor (user-level): Access advisor shows the service permissions gr
 - Use Access Keys for Programmatic Access (CLI/SDK);
 - Audit permissions of your account with the IAM Credentials Report;
 - Never share IAM users & Access Keys.
+
+## IAM Terms
+
+IAM Resources: The user, group, role, policy, and identity provider objects that are stored in IAM. As with other AWS services, you can add, edit, and remove resources from IAM.
+
+IAM Identities: The IAM resource objects that are used to identify and group. You can attach a policy to an IAM identity. Thse include users, groups, and roles.
+
+IAM Entities: The IAM resource objects that AWS uses for authentication. These include IAM users and roles.
+
+Principals: A person or application that uses the AWS account root user, and IAM user, or an IAM role to sign in and make requests to AWS. Principals include federated users and assumed roles.
