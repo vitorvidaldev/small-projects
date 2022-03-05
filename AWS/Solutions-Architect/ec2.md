@@ -46,3 +46,50 @@ EC2 user data is used to automate boot tasks such as:
 - etc
 
 The EC2 User Data Script runs with the root user
+
+## EC2 Instance Types
+
+You can use different types of EC2 instances that are optimized for different use cases.
+
+General Purpose:
+- Great for a diversity of workloads such as web servers or code repositories;
+- Balance between compute, memory, and networking;
+
+Compute Optimized:
+- Great for compute-intensive tasks that require high performance processors
+
+Memory Optimized:
+- Fast performance for workloads that process large data sets in memory
+
+Storage Optimized:
+- Great for storage-intensive tasks that require high, sequential read and write access to large datasets on local storage.
+
+## Security Groups
+
+Security Groups are the fundamental of networking security in AWS.
+
+They control how traffic is allowed into or out of our EC2 Instances.
+
+Security groups only contain allow rules.
+
+Security groups can only be referenced by IP or by security group.
+
+Security groups are acting as a "firewall" on EC2 instances.
+
+Secutity groups regulate:
+- Access to Ports
+- Authorized IP ranges - IPv4 and IPv6
+- Control of inbound network (from other to the instance)
+- Control of outbound network (from the instance to other)
+
+Security Groups are a service outside EC2.
+
+Security Groups have to be configured per VPC.
+
+Classic Ports to know:
+- 22 = SSH (Secure Shell) - log into a Linux instance
+- 21 = FTP (File Transfer Protocol) - upload files into a file share
+- 22 = SFTP (Secure File Transfer Protocol) - upload files using SSH
+- 80 = HTTP - access unsecured websites
+- 443 = HTTPS - access secured websites
+- 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
