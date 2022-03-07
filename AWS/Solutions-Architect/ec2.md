@@ -25,7 +25,7 @@ You have to choose:
 - How much compute power & cores (CPU)
 - How much random-access memory (RAM)
 - How much storage space:
-- - Network-attacked (EBS & EFS)
+- - Network-attatched (EBS & EFS)
 - - Hardware (EC2 Instance Store)
 - Network card: speed of the card, Public IP address
 - Firewall rules: security group
@@ -45,7 +45,7 @@ EC2 user data is used to automate boot tasks such as:
 - Downloading common files from the internet
 - etc
 
-The EC2 User Data Script runs with the root user
+The EC2 User Data Script runs with the root user of the virtual machine.
 
 ## EC2 Instance Types
 
@@ -84,7 +84,13 @@ Secutity groups regulate:
 
 Security Groups are a service outside EC2.
 
-Security Groups have to be configured per VPC.
+Security Groups have to be configured per VPC and region.
+
+The Security Group allows all outbound traffic by default.
+
+The Security Group blocks all inbound traffic by default.
+
+Security Groups can be attached to multiple instances.
 
 Classic Ports to know:
 - 22 = SSH (Secure Shell) - log into a Linux instance
@@ -93,3 +99,13 @@ Classic Ports to know:
 - 80 = HTTP - access unsecured websites
 - 443 = HTTPS - access secured websites
 - 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
+
+It is considered good practice to have a separate security group for SSH.
+
+If your application is not accessible (time out), then it's a security group issue.
+
+## SSH
+
+For servers running Linux, Mac, and Windows 10 or newer, you can use SSH to access them. If you're using an onder version of Windows, you'll have to use Putty, an utility that is a terminal emulator, serial console and network file transfer application. With this application, you can connect to the server using the SSH protocol.
+
+You can also use EC2 Instance Connect, to connect to your EC2 instances. It works with the amz-linux-2 machines, at this time.
