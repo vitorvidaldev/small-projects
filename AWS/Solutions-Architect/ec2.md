@@ -158,6 +158,10 @@ Useful for workloads that are resilient for failure. Examples:
 
 This type of instance is not suitable for critical jobs or databases.
 
+You can define a "max spot price" and get the instance while "current spot price < max spot price".
+- The hourly spot price varies based on offer and capacity
+- If the current spot instance > your max price you can choose to stop or terminate your instance with a 2 minutes grace period.
+
 ### EC2 Dedicated Hosts
 
 An Amazon EC2 Dedicated Host is a physical server with EC2 instance capacity fully dedicated to your use. Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
