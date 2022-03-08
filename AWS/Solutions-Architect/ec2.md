@@ -109,3 +109,57 @@ If your application is not accessible (time out), then it's a security group iss
 For servers running Linux, Mac, and Windows 10 or newer, you can use SSH to access them. If you're using an onder version of Windows, you'll have to use Putty, an utility that is a terminal emulator, serial console and network file transfer application. With this application, you can connect to the server using the SSH protocol.
 
 You can also use EC2 Instance Connect, to connect to your EC2 instances. It works with the amz-linux-2 machines, at this time.
+
+## EC2 Instance Launch Types
+
+On-Demand Instances: short workload, predicable pricing
+
+Reserved (one year or more) :
+- Reserved Instances: long workloads
+- Convertible Reserved Instances: long workloads with flexible instances
+- Schedule Reserved Instances: example - every Thursday between 3 and 6 pm
+
+Spot Instaces: short workloads, cheap, can lose instances (less reliable)
+
+Dedicated Hosts: book an entire physical server, control instance placement
+
+### EC2 On Demand
+Pay for what you use:
+- Linux or Windows: billing per second, after the first minute
+- All other operating systems: billing per hour
+
+Has the highest cost but no upfront payment
+
+No long-term commitment
+
+Recommended for short-term and un-interrupted workloads, where you can't predict how the application will behave.
+
+### EC2 Reserved Instances
+Up to 75% discount compared to On-demand.
+
+Purchasing options: no upfront, partial upfront, all upfront.
+
+You have to reserve a specific instance type.
+
+Recommended for steady-state usage applications.
+
+### EC2 Spot Instances
+
+You can get up to 90% discount compared to On-demand.
+
+Instances that you can "lose" at any point of time if your max price is less than the current spot price.
+
+Useful for workloads that are resilient for failure. Examples:
+- Batch jobs
+- Data analysis
+- Image processing
+- Any distributed workloads
+- Workloads with a flexible start and end time
+
+This type of instance is not suitable for critical jobs or databases.
+
+### EC2 Dedicated Hosts
+
+An Amazon EC2 Dedicated Host is a physical server with EC2 instance capacity fully dedicated to your use. Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
+
+Allocated for your account for a 3-year period reservation.
