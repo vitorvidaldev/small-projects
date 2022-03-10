@@ -167,3 +167,35 @@ You can define a "max spot price" and get the instance while "current spot price
 An Amazon EC2 Dedicated Host is a physical server with EC2 instance capacity fully dedicated to your use. Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 
 Allocated for your account for a 3-year period reservation.
+
+## Private IP vs Public IP vs Elastic IP (IPv4)
+
+IPv4 is still the most common IP format used online.
+
+IPv6 is newer ans solves problems for the Internet of Things (IoT).
+
+IPv4 allows for 3.7 billion different addresses in the public space.
+
+IPv4 format: [0-255].[0-255].[0-255].[0-255]
+
+### Fundamental differences
+Public IP:
+- Public IP means the machine can be identified on the internet (WWW)
+- Must be unique across the whole web (not two machines can have the same public IP).
+- Can be geo-located easily
+
+Private IP:
+- Private IP means the machine can only be identified on a private network only
+- The IP must be unique across the private network
+- Two different private network (two companies) can have the same IPs
+- Machines connect to WWW using an internet gateway (a proxy)
+- Only a specified range of IPs can be used as private IPs
+
+Elastic IP:
+- When you stop and then start an EC2 instance, it can change its public IP
+- If you need to have a fixed public IP for your instance, you need an Elastic IP
+- An Elastic IP is a public IPv4 IP you own as long as you don't delete it
+- You can attach it to one instance at a time
+- With an Elastic IP address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account
+- You can have up to 5 Elastic IP addresses in your account
+- Try to avoid using Elastic IP: They often reflect poor architectural decisions. Instead, use a random public IP and register a DNS name to it.
