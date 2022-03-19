@@ -95,3 +95,8 @@ AWS provides three types of load balancers:
 - Classic Load Balancer (CLB) - Legacy
 
 Sticky Sessions is an advanced load balancing method that allows you to bind a user's sessions to a specific EC2 instance.
+
+## Elastic File System (EFS)
+
+EFS is a file storage service for EC2 instances.
+
