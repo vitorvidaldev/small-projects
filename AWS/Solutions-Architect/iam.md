@@ -154,3 +154,57 @@ IAM Identities: The IAM resource objects that are used to identify and group. Yo
 IAM Entities: The IAM resource objects that AWS uses for authentication. These include IAM users and roles.
 
 Principals: A person or application that uses the AWS account root user, and IAM user, or an IAM role to sign in and make requests to AWS. Principals include federated users and assumed roles.
+
+## IAM Policies
+
+Most policiesa are stored in AWS as JSON documents. You can use the visual editor in the AWS Management Console to create and edit customer managed policies without ever using JSON.
+
+A JSON policy document includes these elements:
+- Optional policy-wide information at the top of the document
+- One or more individual statements
+
+Each statement includes information about a single permission. If a policy includes multiple statements, AWS applies a logical OR across the statements when evaluating them. If multiple policies apply to a request, AWS applies a logical OR across all of those policies when evaluating them.
+
+The information in a statement is contained within a series of elements.
+- Version: Specify the version of the policy language that you want to use.
+- Statement: Use this main policy element as a container for the following elements. You can include more than one statement in a policy.
+- Sid (Optional): Include an optional statement ID to differentiate between your statements.
+- Effect: Use Allow or Deny to indicate whether the policy allows or denies access.
+- Principal (Required in only some circumstances) - If you create a resource-based policy, you must indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating an IAM permissions policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.
+- Action: Includes a list of actions that the policy allows or denies.
+- Resource (Required in only some circunstances): If you create an IAM permissions policy, you must specify a list of resources to which the actions apply. If you create a resource-based policy, this element is optional. If you do not include this element, then the resource to which the action applies is the resource to which the policy is attached.
+
+
+Example:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "FirstStatement",
+      "Effect": "Allow",
+      "Action": ["iam:ChangePassword"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "SecondStatement",
+      "Effect": "Allow",
+      "Action": "s3:ListAllMyBuckets",
+      "Resource": "*"
+    },
+    {
+      "Sid": "ThirdStatement",
+      "Effect": "Allow",
+      "Action": [
+        "s3:List*",
+        "s3:Get*"
+      ],
+      "Resource": [
+        "arn:aws:s3:::confidential-data",
+        "arn:aws:s3:::confidential-data/*"
+      ],
+      "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}}
+    }
+  ]
+}
+```
