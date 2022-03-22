@@ -1,0 +1,9 @@
+# Amazon Virtual Private Cloud (VPC)
+
+A virtual private cloud is an on-demand configurable pool of shared resources allocated within a pulic cloud environment, providing a certain level of isolation between the different organizations using the resources. The isolation between one VPC user and all other users of the same cloud is achieved normally through allocation of a private IP subnet and a virtual communication construct per user. In a VPC, the previouly described mechanism, providing isolation within the cloud, is accompained with a VPN function that secures, by means of authentication and encryption, the remote access of the organization to its VPC resources.
+
+A virtual private cloud (VPC) is a private cloud hosted within a public cloud.
+
+A virtual private cloud (VPC) is a secure, isolated private cloud hosted within a public cloud. VPC customers can run code, store data, host websites, and do anything else they could do in an ordinary private cloud, but the private cloud is hosted remotely by a public cloud provider. VPCs combine the scalability and convenience of public cloud computing with the data isolation of private cloud computing. A private cloud is single-tenant. A private cloud is a cloud service that is exclusively offered to one organization. A virtual private cloud (VPC) is a private cloud within a public cloud; no one else shares the VPC with the VPC customer.
+
+Amazon Virtual Private Cloud (VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and networking gateways. You can use both IPv4 and IPv6 for most resources in your VPC, helping to ensure secure and easy access to resources and applications.
