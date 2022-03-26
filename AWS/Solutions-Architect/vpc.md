@@ -27,3 +27,48 @@ Reachability Analyzer: This static configuration analysis tool enables you to an
 Security Groups: Create security groups to act as firewall for associated Amazon EC2 instances, controlling inbound and outbound traffic at the instance level. When you launch an instance, you can associate it with one or more security groups. If you don't specify a group, the instance is automatically associated with the VPC's default group. Each instance in your VPC can belong to a different set of groups.
 
 Traffic Mirroring: This feature allows you to copy network from an elastic network interface of Amazon EC2 instances and send it to out-of-band security and monitoring appliances for deep packet inspection. You can detect network and security anomalies, gain operational insights, implement compliance and security controls, and troubleshoot issues. Traffic Mirroring gives you direct access to the network packets flowing through your VPC.
+
+## Classless Inter-Domain Routing (CIDR)
+
+Classless Inter-Domain Routing (CIDR) is a method for allocating IP addresses. They are used in Security Groups rules and AWS networking in general.
+
+CIDRs help to define an IP address range. It consists of two components:
+- Based IP
+- Subnet Mask
+
+The Base IP represents an IP contained in the range (XX.XX.XX.XX). Example: 10.0.0.0, 192.168.0.0.
+
+The Subnet Mask defines how many bits can change in the IP. Example: /0, /24, /32. Subnet Masks can be represented in two forms: 
+- /8 == 255.0.0.0
+- /16 == 255.255.0.0
+- /24 == 255.255.255.0
+- /32 == 255.255.255.255
+
+The Subnet Mask basically allows part of the underlying IP to get additional next values from the base IP.
+- 192.168.0.0/32 => allows for 1 IP (2^0) - 192.168.0.0
+- 192.168.0.0/31 => allows for 2 IPs (2^1) - 192.168.0.0 -> 192.168.0.1
+- 192.168.0.0/30 => allows for 4 IPs (2^2) - 192.168.0.0 -> 192.168.0.3
+- 192.168.0.0/29 => allows for 8 IPs (2^3) - 192.168.0.0 -> 192.168.0.7
+- 192.168.0.0/28 => allows for 16 IPs (2^4) - 192.168.0.0 -> 192.168.0.15
+- 192.168.0.0/27 => allows for 32 IPs (2^5) - 192.168.0.0 -> 192.168.0.31
+- 192.168.0.0/26 => allows for 64 IPs (2^6) - 192.168.0.0 -> 192.168.0.63
+- 192.168.0.0/25 => allows for 128 IPs (2^7) - 192.168.0.0 -> 192.168.0.127
+- 192.168.0.0/24 => allows for 255 IPs (2^8) - 192.168.0.0 -> 192.168.0.255
+
+An IPv4 i composed of four octets.
+- /32 - no octect can change
+- /24 - last octet can change
+- /16 - last 2 octets can change
+- /8 - last 3 octets can change
+- /0 - all octets can change
+
+### Public vs. Private IP (IPv4)
+
+The Internet Assigned Numbers Authority (IANA) established certain blocks of IPv4 addresses for the use of private (LAN) and public (Internet) addresses.
+
+Private IP can only allow certain values:
+- 10.0.0.0 - 10.255.255.255 (10.0.0.0/8)
+- 172.16.0.0 - 172.31.255.255 (172.16.0.0/12) <- AWS default VPC is in this range
+- 192.168.0.0 - 192.168.255.255 (192.168.0.0/16) <- e.g., home networks
+
+All the rest of the IP addresses on the Internet are Public
