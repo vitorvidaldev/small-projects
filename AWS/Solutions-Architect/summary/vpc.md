@@ -56,3 +56,17 @@ Create security groups to act as a firewall for associated Amazon EC2 instances,
 - You can have up to 10,000 Security Groups per Region (default 2,500)
 - You can have 60 inbound and 60 outbound rules per Security Group
 - You can have 16 Security Groups associated to an ENI (default is 5)
+
+- When creating a NAT instance you must disable source and destination checks on the instance
+- NAT instances must exist in a public subnet
+- You must have a route out of the private subnet to the NAT instance
+- The size of a NAT instance determines how much traffic can be handled
+- High availability can be achieved using Autoscaling Groups, multiple subnets in different AZs, and automate failover between them using a script
+- NAT Gateways are redundant inside an Availability Zone
+- You can only have 1 NAT Gateway inside 1 Availability Zone
+- Starts at 5 Gbps and scales all the way you to 45 Gbps
+- NAT Gateways are the preferred setup for enterprise systems.
+- There is no requirement to patch NAT Gateways, and there is no need to disable Source/Destination checks for the NAT Gateway
+- NAT Gateways are automatically assigned a public IP address
+- Route Tables for the NAT Gateway MUST be updated
+- Resources in multiple AZs sharing a Gateway will lose internet access if the Gateway goes down, unless you create a Gateway in each AZ and configure route tables accordingly
