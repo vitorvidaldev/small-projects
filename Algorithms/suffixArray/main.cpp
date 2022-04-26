@@ -1,70 +1,82 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-    string s;
-    cin >> s;
-    s += "$";
+	string inputString;
+	cin >> inputString;
+	inputString += "$";
 
-    int n = s.size();
-    vector<int> p(n), c(n);
+	int inputSize = inputString.size();
+	vector<int> stringOrderArray(inputSize), equivallenceArray(inputSize);
 
-    {
-        // k = 0
-        vector<pair<char, int>> a(n);
-        for (int i = 0; i < n; i++)
-            a[i] = {s[i], i};
-        sort(a.begin(), a.end());
+	{
+		vector<pair<int, int>> positions(inputSize);
+		for (int i = 0; i < inputSize; i++) 
+		{
+			positions[i] = { inputString[i], i };
+		}
 
-        for (int i = 0; i < n; i++)
-            p[i] = a[i].second;
-        c[p[0]] = 0;
-        for (int i = 1; i < n; i++)
-        {
-            if (a[i].first == a[i - 1].first)
-            {
-                c[p[i]] = c[p[i - 1]];
-            }
-            else
-            {
-                c[p[i]] = c[p[i - 1]] + 1;
-            }
-        }
-    }
+		sort(positions.begin(), positions.end());
 
-    int k = 0;
-    while ((1 << k) < n)
-    {
-        vector<pair<pair<int, int>, int>> a(n);
-        for (int i = 0; i < n; i++)
-        {
-            a[i] = {{c[i], c[(i + (1 << k)) % n]}, i};
-        }
-        sort(a.begin(), a.end());
-        for (int i = 0; i < n; i++)
-            p[i] = a[i].second;
-        c[p[0]] = 0;
-        for (int i = 1; i < n; i++)
-        {
-            if (a[i].first == a[i - 1].first)
-            {
-                c[p[i]] = c[p[i - 1]];
-            }
-            else
-            {
-                c[p[i]] = c[p[i - 1]] + 1;
-            }
-        }
+		for (int i = 0; i < inputSize; i++)
+		{
+			stringOrderArray[i] = positions[i].second;
+		}
 
-        k++;
-    }
+		equivallenceArray[stringOrderArray[0]] = 0;
 
-    for (int i = 0; i < n; i++)
-    {
-        cout << p[i] << " ";
-    }
-    cout << "\n";
+		for (int i = 1; i < inputSize; i++)
+		{
+			if (positions[i].first == positions[i - 1].first)
+			{
+				equivallenceArray[stringOrderArray[i]] = equivallenceArray[stringOrderArray[i - 1]];
+			}
+			else
+			{
+				equivallenceArray[stringOrderArray[i]] = equivallenceArray[stringOrderArray[i - 1]] + 1;
+			}
+		}
+	}
 
-    return 0;
+	int k = 0;
+
+	while ((1 << k)< inputSize)
+	{
+		vector<pair<pair<int, int>,int>> positions(inputSize);
+
+		for (int i = 0; i < inputSize; i++)
+		{
+			positions[i] = { {equivallenceArray[i], equivallenceArray[(i + (1 << k)) % inputSize]}, i};
+		}
+
+		sort(positions.begin(), positions.end());
+
+		for (int i = 0; i < inputSize; i++)
+		{
+			stringOrderArray[i] = positions[i].second;
+		}
+
+		equivallenceArray[stringOrderArray[0]] = 0;
+
+		for (int i = 1; i < inputSize; i++)
+		{
+			if (positions[i].first == positions[i - 1].first)
+			{
+				equivallenceArray[stringOrderArray[i]] = equivallenceArray[stringOrderArray[i - 1]];
+			}
+			else
+			{
+				equivallenceArray[stringOrderArray[i]] = equivallenceArray[stringOrderArray[i - 1]] + 1;
+			}
+		}
+		k++;
+	}
+
+	for (int i = 0; i < inputSize; i++)
+	{
+		cout << stringOrderArray[i] << " " << inputString.substr(stringOrderArray[i], inputSize - stringOrderArray[i]) << "\n";
+	}
 }
