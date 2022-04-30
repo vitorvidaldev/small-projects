@@ -3,6 +3,31 @@
 #include <algorithm>
 using namespace std;
 
+void count_sort(vector<int> &stringOrderArray, vector<int> &equivallenceArray)
+{
+	int size = stringOrderArray.size();
+	vector<int> counters(size);
+	for (auto element : equivallenceArray)
+	{
+		counters[element]++;
+	}
+	vector<int> newStringOrderArray(size);
+	vector<int> pos(size);
+	pos[0] = 0;
+	for (int i = 1; i < size; i++)
+	{
+		pos[i] = pos[i - 1] + counters[i - 1];
+	}
+
+	for (auto element : stringOrderArray)
+	{
+		int i = equivallenceArray[element];
+		newStringOrderArray[pos[i]] = element;
+		pos[i]++;
+	}
+	stringOrderArray = newStringOrderArray;
+}
+
 int main()
 {
 	string inputString;
@@ -14,9 +39,9 @@ int main()
 
 	{
 		vector<pair<int, int>> positions(inputSize);
-		for (int i = 0; i < inputSize; i++) 
+		for (int i = 0; i < inputSize; i++)
 		{
-			positions[i] = { inputString[i], i };
+			positions[i] = {inputString[i], i};
 		}
 
 		sort(positions.begin(), positions.end());
@@ -43,35 +68,32 @@ int main()
 
 	int k = 0;
 
-	while ((1 << k)< inputSize)
+	while ((1 << k) < inputSize)
 	{
-		vector<pair<pair<int, int>,int>> positions(inputSize);
 
 		for (int i = 0; i < inputSize; i++)
 		{
-			positions[i] = { {equivallenceArray[i], equivallenceArray[(i + (1 << k)) % inputSize]}, i};
+			stringOrderArray[i] = (stringOrderArray[i] - (1 << k) + inputSize) % inputSize;
 		}
 
-		sort(positions.begin(), positions.end());
+		count_sort(stringOrderArray, equivallenceArray);
 
-		for (int i = 0; i < inputSize; i++)
-		{
-			stringOrderArray[i] = positions[i].second;
-		}
-
-		equivallenceArray[stringOrderArray[0]] = 0;
-
+		vector<int> newEquivallenceArray(inputSize);
+		newEquivallenceArray[stringOrderArray[0]] = 0;
 		for (int i = 1; i < inputSize; i++)
 		{
-			if (positions[i].first == positions[i - 1].first)
+			pair<int, int> prev = {equivallenceArray[stringOrderArray[i - 1]], equivallenceArray[(stringOrderArray[i - 1] + (1 << k)) % inputSize]};
+			pair<int, int> now = {equivallenceArray[stringOrderArray[i]], equivallenceArray[(stringOrderArray[i] + (1 << k)) % inputSize]};
+			if (now == prev)
 			{
-				equivallenceArray[stringOrderArray[i]] = equivallenceArray[stringOrderArray[i - 1]];
+				newEquivallenceArray[stringOrderArray[i]] = newEquivallenceArray[stringOrderArray[i - 1]];
 			}
 			else
 			{
-				equivallenceArray[stringOrderArray[i]] = equivallenceArray[stringOrderArray[i - 1]] + 1;
+				newEquivallenceArray[stringOrderArray[i]] = newEquivallenceArray[stringOrderArray[i - 1]] + 1;
 			}
 		}
+		equivallenceArray = newEquivallenceArray;
 		k++;
 	}
 
