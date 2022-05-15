@@ -1,0 +1,10 @@
+entity:
+  user:
+    id: uuid
+    username: string
+    email: string
+    password: string
+  product:
+    id: uuid
+    name: string
+    price: float
