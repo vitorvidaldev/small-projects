@@ -29,7 +29,7 @@ public class TextSearchController {
 
     @PostMapping
     public ResponseEntity<Void> searchText(@RequestBody SearchVO searchVO) {
-        MongoClient mongoClient = MongoClients.create("mongodb+srv://search:search@search.8lwnz.mongodb.net/?retryWrites=true&w=majority");
+        MongoClient mongoClient = MongoClients.create("");
         MongoDatabase database = mongoClient.getDatabase("textSearch");
         MongoCollection<Document> collection = database.getCollection("searchEntity");
 
