@@ -1,28 +1,34 @@
 package com.example.textsearch;
 
 import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
-import org.springframework.data.mongodb.core.MongoOperations;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchRepositoryImpl implements SearchRepositoryCustom {
 
+    private final MongoClient mongoClient;
+
+    public SearchRepositoryImpl(MongoClient mongoClient) {
+        this.mongoClient = mongoClient;
+    }
+
     @Override
     public List<SearchEntity> searchByFilter(String text) {
-        MongoClient mongoClient = MongoClients.create("mongodb+srv://search:search@search.8lwnz.mongodb.net/?retryWrites=true&w=majority");
+        // You can add codec configuration in your database object. This might be needed to map
+        // your object to the mongodb data
         MongoDatabase database = mongoClient.getDatabase("aggregation");
         MongoCollection<Document> collection = database.getCollection("restaurants");
 
-
-        List<Document> documents = List.of(new Document("$search", new Document("index", "default2")
+        List<Document> pipeline = List.of(new Document("$search", new Document("index", "default2")
                 .append("text", new Document("query", "Many people").append("path", new Document("wildcard", "*")))));
 
-        collection.aggregate(documents).forEach(a -> System.out.println(a.toJson()));
+        List<SearchEntity> searchEntityList = new ArrayList<>();
+        collection.aggregate(pipeline, SearchEntity.class).forEach(searchEntityList::add);
 
-        return null;
+        return searchEntityList;
     }
 }
