@@ -1,0 +1,21 @@
+# Create a docker compose file for cassandra database
+version: '3.9'
+
+services:
+    cassandra:
+        image: cassandra:4.0
+        container_name: cassandra
+        ports:
+        - "9042:9042"
+        volumes:
+            - db:/var/lib/cassandra
+        environment:
+            - CASSANDRA_CLUSTER_NAME=blog
+        networks:
+            - cassandra
+
+volumes:
+    db:
+
+networks:
+    cassandra:
