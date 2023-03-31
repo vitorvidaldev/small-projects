@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    environment:
+      ZOO_TICK_TIME: 4000
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+    networks:
+      - kafka-net
+    ports:
+      - '12181:2181'
+    volumes:
+      - 'zookeeper_data:/bitnami'
+
+  kafka:
+    image: bitnami/kafka:latest
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENERS=INTERNAL://:9093,EXTERNAL://:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=INTERNAL://kafka:9093,EXTERNAL://192.168.179.133:12092
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=INTERNAL
+    networks:
+      - kafka-net
+    ports:
+      - '12092:9092'
+    volumes:
+      - 'kafka_data:/bitnami'
+
+networks:
+  kafka-net:
+    driver: bridge
+
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local

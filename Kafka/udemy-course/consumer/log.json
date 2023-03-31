@@ -1,0 +1,128 @@
+[
+    {
+        "libraryEventId": 3,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 4,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 2,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    },
+    {
+        "libraryEventId": 1,
+        "book": {
+            "bookId": 456,
+            "bookName": "Kafka Using Spring Boot",
+            "bookAuthor": "Vitor"
+        },
+        "libraryEventType": "NEW"
+    }
+]
