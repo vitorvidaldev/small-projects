@@ -7,7 +7,7 @@ import org.apache.camel.model.dataformat.JsonLibrary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class ActiveMqReceiverRoute extends RouteBuilder {
     @Autowired
     MyCurrencyExchangeProcessor myCurrencyExchangeProcessor = new MyCurrencyExchangeProcessor();
