@@ -1,6 +1,6 @@
 package dev.vitorvidal.dependencyinjection.controller;
 
-import dev.vitorvidal.dependencyinjection.service.GreetingServiceImpl;
+import dev.vitorvidal.dependencyinjection.service.PropertyInjectedGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ class SetterInjectedControllerTest {
     @BeforeEach
     void setup() {
         controller = new SetterInjectedController();
-        controller.setGreetingService(new GreetingServiceImpl());
+        controller.setGreetingService(new PropertyInjectedGreetingService());
     }
 
     @Test
