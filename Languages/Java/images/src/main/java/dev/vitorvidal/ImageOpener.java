@@ -1,15 +1,20 @@
 package dev.vitorvidal;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
 
 public class ImageOpener {
-    public static BufferedImage openImage(String path) throws IOException {
+    public static Mat openImage(String path) {
         try {
-            return ImageIO.read(new File(path));
-        } catch (IOException e) {
+            Mat src = Imgcodecs.imread(path, Imgcodecs.IMREAD_COLOR);
+
+            if (src.empty()) {
+                System.out.println("Error opening the image in path " + path);
+                System.exit(-1);
+            }
+
+            return src;
+        } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
