@@ -1,43 +1,80 @@
 package dev.vitorvidal;
 
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.core.Size;
-import org.opencv.highgui.HighGui;
-import org.opencv.imgproc.Imgproc;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        OpenCVUtils.initializeOpenCV();
+        File[] files = getImageFiles();
 
-        Mat image = ImageOpener.openImage("./src/main/resources/images/beau.png");
-        String windowName = "Sobel Demo - Simple Edge Detector";
-        Mat grayscaleImage = new Mat();
-        Mat xGray = new Mat();
-        Mat yGray = new Mat();
-        Mat xGrayAbs = new Mat();
-        Mat yGrayAbs = new Mat();
-        Mat gradient = new Mat();
-        int scale = 2;
-        int delta = 0;
-        int depth = CvType.CV_16S;
+        // Configure the JFrame
+        JFrame frame = new JFrame("Image Viewer");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
 
-        // Remove noise by blurring with a Gaussian filter (kernel size = 3)
-        Imgproc.GaussianBlur(image, image, new Size(3, 3), 0, 0, Core.BORDER_DEFAULT);
+        // Configure the JLabel to hold the images
+        JLabel imageLabel = new JLabel();
+        imageLabel.setPreferredSize(new Dimension(1980, 1080));
+        imageLabel.setHorizontalAlignment(JLabel.CENTER);
+        imageLabel.setVerticalAlignment(JLabel.CENTER);
+        frame.add(imageLabel, BorderLayout.CENTER);
 
-        // Convert the image to grayscale
-        Imgproc.cvtColor(image, grayscaleImage, Imgproc.COLOR_RGB2GRAY);
+        // Set the size of the JFrame to 1960 by 1080
+        frame.setSize(1960, 1080);
 
-        Imgproc.Sobel(grayscaleImage, xGray, depth, 1, 0, 3, scale, delta, Core.BORDER_DEFAULT);
-        Imgproc.Sobel(grayscaleImage, yGray, depth, 0, 1, 3, scale, delta, Core.BORDER_DEFAULT);
+        // Load the images into an ArrayList
+        ArrayList<Image> images = new ArrayList<>();
+        for (File file : files) {
+            try {
+                Image image = ImageIO.read(file);
+                images.add(image);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
-        Core.convertScaleAbs(xGray, xGrayAbs);
-        Core.convertScaleAbs(yGray, yGrayAbs);
+        // Display the images in the JLabel
+        for (Image image : images) {
+            // Set the JLabel's icon to the scaled image
+            imageLabel.setIcon(new ImageIcon(image));
+        }
 
-        Core.addWeighted(xGrayAbs, 0.5, yGrayAbs, 0.5, 0, gradient);
+        // Create a Timer to switch the images every 4 seconds
+        Timer timer = new Timer(4000, e -> {
+            // Check if the ArrayList is not empty
+            if (!images.isEmpty()) {
+                // Get a random image from the ArrayList
+                Random random = new Random();
+                Image image = images.get(random.nextInt(images.size()));
 
-        HighGui.imshow(windowName, gradient);
-        HighGui.waitKey(0);
+                // Resize the image to fit the JLabel's size
+                Image resizedImage = image.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+
+                // Set the JLabel's icon to the loaded image
+                imageLabel.setIcon(new ImageIcon(resizedImage));
+            }
+        });
+        timer.start();
+
+        // Set the preferred size of the imageLabel after adding it to the frame
+        imageLabel.setPreferredSize(new Dimension(800, 600));
+
+        // Set the JFrame's size and visibility
+        frame.pack();
+        frame.setVisible(true);
+
+        // Set the JFrame's default close operation to exit the program
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private static File[] getImageFiles() {
+        // Get a list of all the image files in the specified folder
+        File folder = new File("./src/main/resources/images");
+        return folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".jpg") || name.toLowerCase().endsWith(".png"));
     }
 }
