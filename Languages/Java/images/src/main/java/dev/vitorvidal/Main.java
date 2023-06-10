@@ -8,25 +8,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Main {
+import static dev.vitorvidal.Constants.*;
 
+public class Main {
     public static void main(String[] args) {
         File[] files = getImageFiles(LoadEnvironmentVariables.getImagePath());
 
         // Configure the JFrame
-        JFrame frame = new JFrame("Image Viewer");
+        JFrame frame = new JFrame(IMAGE_WINDOW_TITLE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
         // Configure the JLabel to hold the images
         JLabel imageLabel = new JLabel();
-        imageLabel.setPreferredSize(new Dimension(1980, 1080));
+        imageLabel.setPreferredSize(new Dimension(IMAGE_WINDOW_WIDTH, IMAGE_WINDOW_HEIGHT));
         imageLabel.setHorizontalAlignment(JLabel.CENTER);
         imageLabel.setVerticalAlignment(JLabel.CENTER);
         frame.add(imageLabel, BorderLayout.CENTER);
 
-        // Set the size of the JFrame to 1960 by 1080
-        frame.setSize(1960, 1080);
+        frame.setSize(IMAGE_WINDOW_WIDTH, IMAGE_WINDOW_HEIGHT);
 
         // Load the images into an ArrayList
         ArrayList<Image> images = new ArrayList<>();
@@ -64,7 +64,7 @@ public class Main {
         timer.start();
 
         // Set the preferred size of the imageLabel after adding it to the frame
-        imageLabel.setPreferredSize(new Dimension(800, 600));
+        imageLabel.setPreferredSize(new Dimension(IMAGE_WINDOW_WIDTH, IMAGE_WINDOW_HEIGHT));
 
         // Set the JFrame's size and visibility
         frame.pack();
