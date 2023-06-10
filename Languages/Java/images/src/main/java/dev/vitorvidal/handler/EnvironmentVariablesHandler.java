@@ -1,13 +1,13 @@
-package dev.vitorvidal;
+package dev.vitorvidal.handler;
+
+import static dev.vitorvidal.utils.Constants.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
-import static dev.vitorvidal.Constants.*;
-
-public class LoadEnvironmentVariables {
+public class EnvironmentVariablesHandler {
     private static String variables;
 
     private static void initVariables() {
@@ -20,10 +20,15 @@ public class LoadEnvironmentVariables {
     private static void parseFileContent(File file) {
         try {
             List<String> lines = Files.readAllLines(file.toPath());
-            variables =  String.join("\n", lines);
+            variables = String.join("\n", lines);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getEnvVariables() {
+        initVariables();
+        return variables;
     }
 
     public static String getImagePath() {
@@ -37,5 +42,18 @@ public class LoadEnvironmentVariables {
             }
         }
         throw new RuntimeException("Image path not found");
+    }
+
+    public static String getVideoPath() {
+        initVariables();
+
+        String[] lines = variables.split("\n");
+        for (String line : lines) {
+            if (line.contains(VIDEO_PATH_VARIABLE)) {
+                String[] split = line.split("=");
+                return split[1];
+            }
+        }
+        throw new RuntimeException("Video path not found");
     }
 }
