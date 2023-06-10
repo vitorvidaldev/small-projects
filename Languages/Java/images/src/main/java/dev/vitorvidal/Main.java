@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
+
     public static void main(String[] args) {
-        File[] files = getImageFiles();
+        File[] files = getImageFiles(LoadEnvironmentVariables.getImagePath());
 
         // Configure the JFrame
         JFrame frame = new JFrame("Image Viewer");
@@ -53,7 +54,8 @@ public class Main {
                 Image image = images.get(random.nextInt(images.size()));
 
                 // Resize the image to fit the JLabel's size
-                Image resizedImage = image.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                Image resizedImage = image.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(),
+                        Image.SCALE_SMOOTH);
 
                 // Set the JLabel's icon to the loaded image
                 imageLabel.setIcon(new ImageIcon(resizedImage));
@@ -72,9 +74,10 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private static File[] getImageFiles() {
+    private static File[] getImageFiles(String path) {
         // Get a list of all the image files in the specified folder
         File folder = new File("./src/main/resources/images");
-        return folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".jpg") || name.toLowerCase().endsWith(".png"));
+        return folder
+                .listFiles((dir, name) -> name.toLowerCase().endsWith(".jpg") || name.toLowerCase().endsWith(".png"));
     }
 }
