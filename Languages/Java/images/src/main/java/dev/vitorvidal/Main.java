@@ -76,7 +76,7 @@ public class Main {
 
     private static File[] getImageFiles(String path) {
         // Get a list of all the image files in the specified folder
-        File folder = new File("./src/main/resources/images");
+        File folder = new File(path);
         return folder
                 .listFiles((dir, name) -> name.toLowerCase().endsWith(".jpg") || name.toLowerCase().endsWith(".png"));
     }
