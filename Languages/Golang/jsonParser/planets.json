@@ -1,0 +1,82 @@
+[
+  {
+    "planet_name": "Mercury",
+    "planet_name_description": "Roman God of Speed",
+    "dist_sun_au": 0.4,
+    "diameter_km": 4880,
+    "num_moons": 0,
+    "year_length_in_days": 88,
+    "planet_type": "Terrestrial Planet",
+    "planet_description": "Mercury - the smallest planet in our solar system and the closest to the Sun - is only slightly larger than Earth's Moon. Mercury is the fastest planet, zipping around the Sun every 88 Earth days."
+  },
+  {
+    "planet_name": "Venus",
+    "planet_name_description": "Roman Goddess of Love",
+    "dist_sun_au": 0.7,
+    "diameter_km": 12104,
+    "num_moons": 0,
+    "year_length_in_days": 225,
+    "planet_type": "Terrestrial Planet",
+    "planet_description": "Venus spins slowly in the opposite direction from most planets. A thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system"
+  },
+  {
+    "planet_name": "Earth",
+    "planet_name_description": "Variation of \"The Ground\" in Many Languages",
+    "dist_sun_au": 1,
+    "diameter_km": 12756,
+    "num_moons": 1,
+    "year_length_in_days": 365.25,
+    "planet_type": "Terrestrial Planet",
+    "planet_description": "Earth - our home planet - is the only place we know so far that's inhabited by living things. It's also the only planet in our solar system with liquid water on the surface"
+  },
+  {
+    "planet_name": "Mars",
+    "planet_name_description": "Roman God of War",
+    "dist_sun_au": 1.5,
+    "diameter_km": 6794,
+    "num_moons": 2,
+    "year_length_in_days": 686.67,
+    "planet_type": "Terrestrial Planet",
+    "planet_description": "Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence that Mars was - billions of years ago - wetter and warmer, with a thicker atmosphere."
+  },
+  {
+    "planet_name": "Jupiter",
+    "planet_name_description": "King of the Roman Gods",
+    "dist_sun_au": 5.2,
+    "diameter_km": 142984,
+    "num_moons": 79,
+    "year_length_in_days": 4331.865,
+    "planet_type": "Gas Giant",
+    "planet_description": "Jupiter is more than twice as the other planets of our solar system combined. The giant planet's Great Red spot is a centuries-old storm bigger than Earth."
+  },
+  {
+    "planet_name": "Saturn",
+    "planet_name_description": "Father of Jupiter",
+    "dist_sun_au": 9.5,
+    "diameter_km": 120536,
+    "num_moons": 62,
+    "year_length_in_days": 10756.6125,
+    "planet_type": "Gas Giant",
+    "planet_description": "Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's."
+  },
+  {
+    "planet_name": "Uranus",
+    "planet_name_description": "Greek God of the Sky",
+    "dist_sun_au": 19.8,
+    "diameter_km": 51118,
+    "num_moons": 27,
+    "year_length_in_days": 30681,
+    "planet_type": "Ice Giant",
+    "planet_description": "Uranus - seventh planet from the Sun - rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side."
+  },
+  {
+    "planet_name": "Neptune",
+    "planet_name_description": "Roman God of the Sea",
+    "dist_sun_au": 30.1,
+    "diameter_km": 49532,
+    "num_moons": 14,
+    "year_length_in_days": 60196.8525,
+    "planet_type": "Ice Giant",
+    "planet_description": "Neptune - the eight and most distant major planet orbiting our Sun - is dark, cold and whipped by supersonic winds.It was the first planet located through mathematical calculations, rather than by telescope."
+  }
+]
