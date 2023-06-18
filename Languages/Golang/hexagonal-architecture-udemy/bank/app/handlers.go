@@ -1,22 +1,29 @@
 package app
 
 import (
+	"dev/vitorvidaldev/banking/service"
 	"encoding/json"
 	"encoding/xml"
-	"fmt"
 	"net/http"
 )
 
-func greet(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello World!")
+type Customer struct {
+	Name    string `json:"full_name" xml:"full_name"`
+	City    string `json:"city" xml:"city"`
+	Zipcode string `json:"zip_code" xml:"zip_code"`
 }
 
-func getAllCustomers(w http.ResponseWriter, r *http.Request) {
-	customers := []Customer{
-		{Name: "John", City: "New York", Zipcode: "123"},
-		{Name: "Jane", City: "New York", Zipcode: "123"},
-		{Name: "Bob", City: "New York", Zipcode: "123"},
+type CustomerHandlers struct {
+	service service.CustomerService
+}
+
+func (ch *CustomerHandlers) getAllCustomers(w http.ResponseWriter, r *http.Request) {
+	customers, err := ch.service.GetAllCustomers()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
 	}
+
 	if r.Header.Get("Content-Type") == "application/xml" {
 		w.Header().Add("Content-Type", "application/xml")
 		xml.NewEncoder(w).Encode(customers)
@@ -24,10 +31,4 @@ func getAllCustomers(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(customers)
 	}
-}
-
-type Customer struct {
-	Name    string `json:"full_name" xml:"full_name"`
-	City    string `json:"city" xml:"city"`
-	Zipcode string `json:"zip_code" xml:"zip_code"`
 }
