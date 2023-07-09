@@ -1,0 +1,15 @@
+services:
+  thread-db:
+    image: 'mysql:5.7-debian'
+    environment:
+      - 'MYSQL_DATABASE=thread-db'
+      - 'MYSQL_PASSWORD=admin'
+      - 'MYSQL_ROOT_PASSWORD=admin'
+      - 'MYSQL_USER=admin'
+    ports:
+      - '3306:3306'
+    volumes:
+      - './.data/thread-db:/var/lib/mysql'
+
+volumes:
+  thread-db:
