@@ -1,17 +1,16 @@
 package dev.vitorvidal.processdata.model;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "course")
-public class Course {
+@Table(name = "subject")
+public class Subject {
     private String name;
     private String code;
     private String description;
-    private List<Professor> professors;
-    private List<Student> students;
-    private List<Subject> subjects;
+    private String bibliography;
+    private Professor professor;
+    private Course course;
+    private Room room;
 }
