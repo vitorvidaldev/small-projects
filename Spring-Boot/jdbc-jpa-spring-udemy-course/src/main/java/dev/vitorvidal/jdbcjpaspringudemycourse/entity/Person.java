@@ -1,15 +1,30 @@
 package dev.vitorvidal.jdbcjpaspringudemycourse.entity;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
-
+@Entity
+@Table(name = "person")
+@NamedQuery(name = "find_all_persons", query = "select p from Person p")
 public class Person {
+    @Id
+    @GeneratedValue
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "location")
     private String location;
+    @Column(name = "birth_date")
     private LocalDateTime birthDate;
 
     public Person() {
+    }
+
+    public Person(String name, String location, LocalDateTime birthDate) {
+        this.name = name;
+        this.location = location;
+        this.birthDate = birthDate;
     }
 
     public Person(int id, String name, String location, LocalDateTime birthDate) {
