@@ -3,12 +3,15 @@ package dev.vitorvidal.jpaudemy.repository;
 import dev.vitorvidal.jpaudemy.entity.Course;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @Transactional
 public class CourseRepository {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private EntityManager entityManager;
 
@@ -28,5 +31,12 @@ public class CourseRepository {
         } else {
             return entityManager.merge(course);
         }
+    }
+
+    public void playWithEntityManager() {
+        logger.info("playWithEntityManager - start");
+        Course course = new Course("Web services course");
+        entityManager.persist(course);
+        course.setName("Web services course updated");
     }
 }

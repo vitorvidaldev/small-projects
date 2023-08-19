@@ -40,4 +40,10 @@ class CourseRepositoryTest {
         Course updatedCourse = repository.findById(666L);
         assertEquals("test course updated", updatedCourse.getName());
     }
+
+    @Test
+    @DirtiesContext
+    void shouldPlayWithEntityManager() {
+        repository.playWithEntityManager();
+    }
 }
