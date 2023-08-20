@@ -22,6 +22,10 @@ public class JpaUdemyApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        // executeTestOperations();
+    }
+
+    private void executeTestOperations() {
         Course course = courseRepository.findById(10001L);
         logger.info("Course 10001 -> {}", course);
 

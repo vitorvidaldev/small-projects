@@ -15,10 +15,8 @@ public class Course {
     private Long id;
     @Column(name = "name")
     private String name;
-
     @UpdateTimestamp
     private LocalDateTime lastUpdatedDate;
-
     @CreationTimestamp
     private LocalDateTime createdDate;
 

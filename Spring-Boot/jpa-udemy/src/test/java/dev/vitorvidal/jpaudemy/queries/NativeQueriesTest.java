@@ -1,4 +1,4 @@
-package dev.vitorvidal.jpaudemy.repository;
+package dev.vitorvidal.jpaudemy.queries;
 
 import dev.vitorvidal.jpaudemy.JpaUdemyApplication;
 import dev.vitorvidal.jpaudemy.entity.Course;
