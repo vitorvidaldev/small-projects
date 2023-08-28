@@ -1,6 +1,7 @@
 package dev.vitorvidal.jpaudemy;
 
 import dev.vitorvidal.jpaudemy.entity.Course;
+import dev.vitorvidal.jpaudemy.entity.Review;
 import dev.vitorvidal.jpaudemy.repository.CourseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class JpaUdemyApplication implements CommandLineRunner {
@@ -23,6 +27,10 @@ public class JpaUdemyApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // executeTestOperations();
+        List<Review> reviews = new ArrayList<>();
+        reviews.add(new Review("5", "Hands-on Stuff"));
+        reviews.add(new Review("5", "Dynamic System"));
+        courseRepository.addReviewsForCourse(666L, reviews);
     }
 
     private void executeTestOperations() {

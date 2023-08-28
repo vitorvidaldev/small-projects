@@ -1,9 +1,6 @@
 package dev.vitorvidal.jpaudemy.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -18,6 +15,8 @@ public class Review {
     private String rating;
     @Column
     private String description;
+    @ManyToOne
+    private Course course;
     @UpdateTimestamp
     private LocalDateTime lastUpdatedDate;
     @CreationTimestamp
@@ -26,7 +25,8 @@ public class Review {
     protected Review() {
     }
 
-    public Review(String description) {
+    public Review(String rating, String description) {
+        this.rating = rating;
         this.description = description;
     }
 
@@ -52,6 +52,14 @@ public class Review {
 
     public void setRating(String rating) {
         this.rating = rating;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     @Override
